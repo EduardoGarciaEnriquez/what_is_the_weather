@@ -1,2 +1,2 @@
 # WhatSTheWeather
-http://cegetesthostingpackage-com.stackstaging.com/Content/9%20APIs/P1_WeatherForecast_APIs.php
+Weather forecast that gives the weather, sky, temperature and wind speed of whichever city in the world the user asks for. Developed with HTML5, CSS3, Bootstrap4, PHP and “openweathermap.org” API.
