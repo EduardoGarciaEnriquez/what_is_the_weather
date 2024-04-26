@@ -4,7 +4,7 @@ const form = document.querySelector('#form');
 
 async function searchWeather(city) {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=0853d40341443e2e1cbdba1914754e60`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`
   );
   const data = await response.json();
 
