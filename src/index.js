@@ -1,6 +1,7 @@
 const display = document.querySelector("#weather");
 const input = document.querySelector("#city");
 const form = document.querySelector('#form');
+const API_KEY= '0853d40341443e2e1cbdba1914754e60'
 
 async function searchWeather(city) {
   const response = await fetch(
