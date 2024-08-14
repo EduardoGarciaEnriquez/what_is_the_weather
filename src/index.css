@@ -14,7 +14,7 @@ body {
   color: var(--text-primary);
 }
 
-.container {
+#root {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -29,28 +29,10 @@ header {
   font-weight: 600;
 }
 
-.toggle-theme {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  transition: all 1s ease-in-out;
-}
-
-.toggle-theme:hover {
-  transition: all 1s ease-in-out;
-  filter: drop-shadow(0 0 1rem var(--text-secondary));
-}
-
-.toggle-theme>img {
-  height: 40px;
-  width: auto;
-}
-
 form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
 form>label {
@@ -80,19 +62,4 @@ form>button {
 form>button:hover {
   background-color: var(--accent-hover);
   border: solid 1px var(--text-secondary);
-}
-
-.alert {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 16px;
-  border-radius: var(--radius);
-  font-size: small;
-  color: var(--text-secondary);
-  box-shadow: var(--shadow);
-}
-
-.info {
-  background-color: var(--alert-info);
 }
