@@ -1,7 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useTheme } from './hooks/useTheme'
+
+import sunIcon from './assets/sun.svg'
+import moonIcon from './assets/moon.svg'
+
+export const Switch = () => {
+  const { theme, handleChange } = useTheme()
+
+  return (
+    <button onClick={handleChange} className="toggle-theme">
+      <img src={theme === 'dark' ? sunIcon : moonIcon} alt="toggle theme" />
+    </button>
+  )
+}
 
 function App() {
   const [count, setCount] = useState(0)
