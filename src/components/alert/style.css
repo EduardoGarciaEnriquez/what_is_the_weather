@@ -1,0 +1,21 @@
+@import url('../../styles/var.css');
+
+.alert {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border-radius: var(--radius);
+    font-size: small;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow);
+}
+
+.info {
+    background-color: var(--alert-info);
+}
+
+.warning {
+    background-color: var(--alert-warning);
+    text-align: center;
+}
