@@ -15,31 +15,45 @@ export const Switch = () => {
 }
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [city, setCity] = useState<string>('')
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className='container'>
+      <header>
+        <h1>What's the weather</h1>
+        <Switch />
+      </header>
+      <form id="form">
+        <label htmlFor="city">Enter the name of the city:</label>
+        <input
+          type="search"
+          className="form-control"
+          id="city"
+          placeholder="Search city or postal code"
+          name="city"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+
+        <button
+          onClick={handleSubmit}
+          type="submit"
+          className="btn btn-primary"
+        >
+          Submit
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+        <div id="weather" className="alert info">
+          <span>The weather in Guadalajara is currently broken clouds.</span>
+          <span>The temperature is 27°C</span>
+          <span>The wind speed is 5.82 m/s</span>
+        </div>
+      </form>
+    </div>
   )
 }
 
