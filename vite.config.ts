@@ -11,4 +11,5 @@ export default defineConfig({
     setupFiles: './src/setupTests.ts',
     css: true,
   },
+  base: '/what_is_the_weather/',
 })
