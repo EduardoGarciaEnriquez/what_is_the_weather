@@ -1,0 +1,19 @@
+@import url('./styles/var.css');
+
+.toggle-theme {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+.toggle-theme:hover {
+    transition: all 1s ease-in-out;
+    filter: drop-shadow(0 0 1rem var(--text-secondary));
+}
+
+.toggle-theme>img {
+    height: 40px;
+    width: auto;
+}
