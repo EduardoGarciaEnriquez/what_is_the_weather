@@ -1,12 +1,15 @@
-import React from 'react'
-
 import './style.css'
 
-type Role = 'info' | 'warning'
+export type Role = 'info' | 'warning'
 
-function Alert({ children, role }: { children: React.ReactNode; role: Role }) {
+export interface IProps {
+  children: JSX.Element
+  role: Role
+}
+
+function Alert({ children, role }: IProps) {
   return (
-    <div id="weather" className={`alert ${role}`}>
+    <div data-testid="alert-badge" className={`alert ${role}`}>
       {children}
     </div>
   )
