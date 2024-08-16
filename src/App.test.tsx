@@ -1,7 +1,8 @@
+import React, { act } from 'react'
+
 import { fireEvent, render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import React, { act } from 'react'
 import App from './App'
 
 let theme = 'light'
@@ -159,11 +160,12 @@ describe('App', () => {
 
   describe('when input text changes', () => {
     it('saves the value', () => {
-      const setState = vi.fn()
-      vi.spyOn(React, 'useState').mockImplementationOnce((initState) => [
-        initState,
-        setState,
-      ])
+      const setStateMock = vi.fn()
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const useStateMock: any = (useState: any) => [useState, setStateMock]
+
+      vi.spyOn(React, 'useState').mockImplementationOnce(useStateMock)
 
       render(<App />)
 
@@ -173,7 +175,7 @@ describe('App', () => {
 
       act(() => fireEvent.change(input, { target: { value: 'New York' } }))
 
-      expect(setState).toHaveBeenCalledWith('New York')
+      expect(setStateMock).toHaveBeenCalledWith('New York')
     })
   })
 })
