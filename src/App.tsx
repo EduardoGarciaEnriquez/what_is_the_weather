@@ -62,11 +62,13 @@ function App() {
 
         {displayData && (
           <Alert role="info">
-            <span>
-              The weather in {data.city} is currently {data.description}.
-            </span>
-            <span>The temperature is {data.temp}</span>
-            <span>The wind speed is {data.wind}</span>
+            <>
+              <span>
+                The weather in {data.city} is currently {data.description}.
+              </span>
+              <span>The temperature is {data.temp}</span>
+              <span>The wind speed is {data.wind}</span>
+            </>
           </Alert>
         )}
 
