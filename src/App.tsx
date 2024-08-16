@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { useTheme } from './hooks/useTheme'
+import React, { SetStateAction } from 'react'
 import { useForecastWeather } from './hooks/useForecastWeather'
+import { useTheme } from './hooks/useTheme'
 
-import Loader from './components/loader'
-import Alert from './components/alert'
-import sunIcon from './assets/sun.svg'
 import moonIcon from './assets/moon.svg'
+import sunIcon from './assets/sun.svg'
+import Alert from './components/alert'
+import Loader from './components/loader'
 
 import './App.css'
 
@@ -20,13 +20,17 @@ export const Switch = () => {
 }
 
 function App() {
-  const [city, setCity] = useState<string>('')
+  const [city, setCity] = React.useState<string>('')
 
   const { data, error, loading, getWeather } = useForecastWeather(city)
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     getWeather()
+  }
+
+  const handleOnChange = (e: { target: { value: SetStateAction<string> } }) => {
+    setCity(e.target.value)
   }
 
   const displayError = error && !loading
@@ -47,7 +51,7 @@ function App() {
           placeholder="Search city or postal code"
           name="city"
           value={city}
-          onChange={(e) => setCity(e.target.value)}
+          onChange={handleOnChange}
           disabled={loading}
         />
 
