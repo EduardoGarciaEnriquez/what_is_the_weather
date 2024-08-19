@@ -7,8 +7,6 @@ interface DataResponse {
   description: string
 }
 
-const API_KEY = '0853d40341443e2e1cbdba1914754e60'
-
 export const useForecastWeather = (city: string) => {
   const [data, setData] = useState<DataResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -18,7 +16,7 @@ export const useForecastWeather = (city: string) => {
     setLoading(true)
 
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${import.meta.env.VITE_API_KEY}`
     )
 
     const res = await response.json()
