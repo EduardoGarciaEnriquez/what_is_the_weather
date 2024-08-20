@@ -5,7 +5,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import App from './App'
 
-let theme = 'light'
 let data: null | {
   city: string
   temp: string
@@ -16,10 +15,6 @@ let loading: boolean = false
 let error: string | null = null
 
 const mockGetWeather = vi.fn()
-
-vi.mock('./hooks/useTheme', () => ({
-  useTheme: () => ({ theme }),
-}))
 
 vi.mock('./hooks/useForecastWeather', () => ({
   useForecastWeather: () => ({
@@ -32,7 +27,6 @@ vi.mock('./hooks/useForecastWeather', () => ({
 
 describe('App', () => {
   beforeEach(() => {
-    theme = 'light'
     data = null
     loading = false
     error = null
@@ -62,30 +56,6 @@ describe('App', () => {
         name: /submit/i,
       })
     ).toBeInTheDocument()
-  })
-
-  describe('when theme is dark', () => {
-    it('renders a sun icon', () => {
-      theme = 'dark'
-
-      render(<App />)
-
-      expect(screen.getByRole('img', { name: 'toggle theme' })).toHaveAttribute(
-        'src',
-        '/what_is_the_weather/src/assets/sun.svg'
-      )
-    })
-  })
-
-  describe('when theme is light', () => {
-    it('renders a moon icon', () => {
-      render(<App />)
-
-      expect(screen.getByRole('img', { name: 'toggle theme' })).toHaveAttribute(
-        'src',
-        '/what_is_the_weather/src/assets/moon.svg'
-      )
-    })
   })
 
   describe('when is loading', () => {

@@ -1,23 +1,11 @@
 import React, { SetStateAction } from 'react'
 import { useForecastWeather } from './hooks/useForecastWeather'
-import { useTheme } from './hooks/useTheme'
 
-import moonIcon from './assets/moon.svg'
-import sunIcon from './assets/sun.svg'
 import Alert from './components/alert'
 import Loader from './components/loader'
+import Switch from './components/theme-switch'
 
 import './App.css'
-
-export const Switch = () => {
-  const { theme, handleChange } = useTheme()
-
-  return (
-    <button onClick={handleChange} className="toggle-theme">
-      <img src={theme === 'dark' ? sunIcon : moonIcon} alt="toggle theme" />
-    </button>
-  )
-}
 
 function App() {
   const [city, setCity] = React.useState<string>('')
