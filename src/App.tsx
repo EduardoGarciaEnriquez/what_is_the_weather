@@ -1,7 +1,9 @@
 import React, { SetStateAction } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useForecastWeather } from './hooks/useForecastWeather'
 
 import Alert from './components/alert'
+import LangSwitch from './components/lang-switch'
 import Loader from './components/loader'
 import Switch from './components/theme-switch'
 
@@ -11,6 +13,8 @@ function App() {
   const [city, setCity] = React.useState<string>('')
 
   const { data, error, loading, getWeather } = useForecastWeather(city)
+
+  const { t } = useTranslation()
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
@@ -26,17 +30,18 @@ function App() {
 
   return (
     <>
+      <LangSwitch />
       <header>
-        <h1>What's the weather</h1>
+        <h1>{t('title')}</h1>
         <Switch />
       </header>
       <form>
-        <label htmlFor="city">Enter the name of the city:</label>
+        <label htmlFor="city">{t('input.label')}</label>
         <input
           type="search"
           className="form-control"
           id="city"
-          placeholder="Search city or postal code"
+          placeholder={t('input.placeholder')}
           name="city"
           value={city}
           onChange={handleOnChange}
@@ -49,24 +54,27 @@ function App() {
           type="submit"
           className="btn btn-primary"
         >
-          Submit
+          {t('buttonTxt')}
         </button>
 
         {displayData && (
           <Alert role="info">
             <>
               <span>
-                The weather in {data.city} is currently {data.description}.
+                {t('response.weather', {
+                  city: data.city,
+                  description: data.description,
+                })}
               </span>
-              <span>The temperature is {data.temp}</span>
-              <span>The wind speed is {data.wind}</span>
+              <span>{t('response.temp', { temp: data.temp })}</span>
+              <span>{t('response.wind', { wind: data.wind })}</span>
             </>
           </Alert>
         )}
 
         {displayError && (
           <Alert role="warning">
-            <span>{error}</span>
+            <span>{t(error, { city })}</span>
           </Alert>
         )}
 

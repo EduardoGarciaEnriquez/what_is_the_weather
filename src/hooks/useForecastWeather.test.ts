@@ -23,9 +23,7 @@ describe('useForecastWeather', () => {
 
       expect(result.current.data).toBe(null)
 
-      expect(result.current.error).toBe(
-        `"not a city" is not a valid input. Try with a different city.`
-      )
+      expect(result.current.error).toBe('response.error.not_valid')
     })
   })
 
@@ -39,9 +37,7 @@ describe('useForecastWeather', () => {
 
       expect(result.current.data).toBe(null)
 
-      expect(result.current.error).toBe(
-        'Input is empty, try writting a city name.'
-      )
+      expect(result.current.error).toBe('response.error.empty')
     })
   })
 

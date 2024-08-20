@@ -35,6 +35,8 @@ describe('App', () => {
   it('renders the component', () => {
     render(<App />)
 
+    expect(screen.getByRole('button', { name: 'En' }))
+
     expect(
       screen.getByRole('heading', { level: 1, name: "What's the weather" })
     )
@@ -42,8 +44,6 @@ describe('App', () => {
     expect(
       screen.getByRole('img', { name: 'toggle theme' }).parentElement
     ).toHaveClass('toggle-theme')
-
-    expect(screen.getByText('Enter the name of the city:')).toBeInTheDocument()
 
     expect(
       screen.getByRole('searchbox', {
@@ -53,7 +53,7 @@ describe('App', () => {
 
     expect(
       screen.getByRole('button', {
-        name: /submit/i,
+        name: /search/i,
       })
     ).toBeInTheDocument()
   })
@@ -80,7 +80,7 @@ describe('App', () => {
 
       expect(
         screen.getByRole('button', {
-          name: /submit/i,
+          name: /search/i,
         })
       ).toHaveAttribute('disabled')
     })
@@ -119,10 +119,10 @@ describe('App', () => {
   })
 
   describe('when we  click on submit', () => {
-    it('calls getTheWeather()', async () => {
+    it('calls getTheWeather()', () => {
       render(<App />)
 
-      fireEvent.click(screen.getByRole('button', { name: 'Submit' }))
+      fireEvent.click(screen.getByRole('button', { name: /search/i }))
 
       expect(mockGetWeather).toHaveBeenCalled()
     })
