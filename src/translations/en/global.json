@@ -1,0 +1,17 @@
+{
+  "title": "What's the weather",
+  "input": {
+    "label": "Enter the name of the city:",
+    "placeholder": "Search a city or a postal code"
+  },
+  "buttonTxt": "Search",
+  "response": {
+    "error": {
+      "emtpy": "Input is empty, try writting a city name.",
+      "not_valid": "'{{city}}' is not a valid input. Try with a different city."
+    },
+    "weather": "The weather in {{city}} is currently {{description}}.",
+    "temp": "The temperature is {{temp}}",
+    "wind": "The wind speed is {{wind}}"
+  }
+}

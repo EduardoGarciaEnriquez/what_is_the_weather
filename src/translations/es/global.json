@@ -1,0 +1,17 @@
+{
+  "title": "Consultar el clima",
+  "input": {
+    "label": "Ingresa el nombre de una ciudad:",
+    "placeholder": "Busca por ciudad o codigo postal"
+  },
+  "buttonTxt": "Buscar",
+  "response": {
+    "error": {
+      "emtpy": "Entrada vacia. Intenta con el nombre de una ciudad.",
+      "not_valid": "'{{city}}' no es una búsqueda válida. Trata con otra ciudad."
+    },
+    "weather": "El clima en {{city}} está con {{description}}.",
+    "temp": "La temperatura es de {{temp}}",
+    "wind": "La velocidad del viento es de {{wind}}"
+  }
+}
