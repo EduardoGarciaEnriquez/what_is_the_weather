@@ -7,7 +7,7 @@
   "buttonTxt": "Buscar",
   "response": {
     "error": {
-      "emtpy": "Entrada vacia. Intenta con el nombre de una ciudad.",
+      "empty": "Entrada vacia. Intenta con el nombre de una ciudad.",
       "not_valid": "'{{city}}' no es una búsqueda válida. Trata con otra ciudad."
     },
     "weather": "El clima en {{city}} está con {{description}}.",

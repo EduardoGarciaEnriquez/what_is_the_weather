@@ -7,7 +7,7 @@
   "buttonTxt": "Search",
   "response": {
     "error": {
-      "emtpy": "Input is empty, try writting a city name.",
+      "empty": "Input is empty, try writting a city name.",
       "not_valid": "'{{city}}' is not a valid input. Try with a different city."
     },
     "weather": "The weather in {{city}} is currently {{description}}.",
