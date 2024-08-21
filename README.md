@@ -30,6 +30,7 @@ The project is built using **Vite**, **React**, and **TypeScript**, and includes
     - useHookName.ts
     - useHookName.test.ts
   - styles/
+- cypress/e2e/\*.cy.ts
 - config files (ts, vite, eslint, jest)
 - .gitignore
 - index.html
@@ -64,7 +65,8 @@ The project is built using **Vite**, **React**, and **TypeScript**, and includes
 - **Lint the code**: `npm run lint`
 - **Preview the built project**: `npm run preview`
 - **Run tests**: `npm run test`
-- **Run tests with coverage**: `npm run coverage`
+- **Run tests with coverage**: `npm run test:ci`
+- **Run end to end tests GUI mode**: `npm run cy:e2e`
 
 ## Configuration
 
