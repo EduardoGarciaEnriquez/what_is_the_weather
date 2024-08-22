@@ -1,14 +1,33 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows: [Tests]
+  push:
     branches: main
-    types: completed
 
 jobs:
+  unit-test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Execute Unit tests
+        env:
+          VITE_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+        run: |
+          npm run test
+          npm run test:ci
+
   build:
     name: Build
+    needs: unit-test
     runs-on: ubuntu-latest
 
     steps:
